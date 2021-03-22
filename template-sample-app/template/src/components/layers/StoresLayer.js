@@ -7,7 +7,7 @@ import htmlForFeature from 'utils/htmlForFeature';
 
 export const STORES_LAYER_ID = 'storesLayer';
 
-const OTHERS_COLOR = { Others: [17, 165, 121] };
+const OTHERS_COLOR = { Others: [200, 200, 200] };
 
 export const CATEGORY_COLORS = {
   Supermarket: [80, 20, 85],

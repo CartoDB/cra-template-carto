@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux';
 import { setBottomSheetOpen, setError } from 'store/appSlice';
 import { Divider, Grid, Typography, makeStyles } from '@material-ui/core';
 import { AggregationTypes } from '@carto/react-core';
-import { FormulaWidget, CategoryWidget, HistogramWidget } from '@carto/react-widgets';
+import { FormulaWidget, CategoryWidget, PieWidget, HistogramWidget } from '@carto/react-widgets';
 import { currencyFormatter, numberFormatter } from 'utils/formatter';
 import storesSource from 'data/sources/storesSource';
+import { CATEGORY_COLORS } from 'components/layers/StoresLayer';
+import rgbToHex from 'utils/rgbToHex';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -35,6 +37,15 @@ function StoresList() {
     dispatch(setError(`Error obtaining stores per revenue: ${error.message}`));
   };
 
+  const colorsPerCategory = Object.keys(CATEGORY_COLORS)
+  .reduce((hexColorsPerCategory, key) => {
+    hexColorsPerCategory[key] = rgbToHex(CATEGORY_COLORS[key]);
+    return hexColorsPerCategory;
+  }, {});
+
+  console.table(colorsPerCategory);
+
+
   return (
     <Grid item xs>
       <Typography variant='h5' gutterBottom className={classes.title}>
@@ -54,11 +65,22 @@ function StoresList() {
       />
 
       <Divider />
-
       <CategoryWidget
         id='revenueByStoreType'
         title='Revenue by store type'
         dataSource={storesSource.id}
+        column='storetype'
+        operationColumn='revenue'
+        operation={AggregationTypes.SUM}
+        formatter={currencyFormatter}
+        onError={onRevenuePerTypeWidgetError}
+      />
+
+      <PieWidget
+        id='revenueByStoreTypePie'
+        title='Revenue by store type'
+        dataSource={storesSource.id}
+        colorsPerCategory={colorsPerCategory}
         column='storetype'
         operationColumn='revenue'
         operation={AggregationTypes.SUM}
