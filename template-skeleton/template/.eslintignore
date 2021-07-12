@@ -1,0 +1,23 @@
+# Ignore artifacts:
+build
+coverage
+_templates
+
+# Ignore all config files:
+*.lock
+gitignore
+.eslintignore
+package.dev.json
+storybook-static
+.eslintcache
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# misc
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

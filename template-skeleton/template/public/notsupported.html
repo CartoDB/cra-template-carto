@@ -3,50 +3,115 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="CARTO for React - Sample Location Intelligence Application" />
+    <meta
+      name="description"
+      content="CARTO for React - Sample Location Intelligence Application"
+    />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-config" content="%PUBLIC_URL%/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="%PUBLIC_URL%/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="%PUBLIC_URL%/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="%PUBLIC_URL%/favicon/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-config" content="%PUBLIC_URL%/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="manifest" href="%PUBLIC_URL%/favicon/manifest.json" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
 
     <title>CARTO for React App</title>
     <style>
-      body { font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 24px; background-color: #f8f9f9; color: #2c3032; }
-      .wrapper {
-        width: 412px; padding: 24px 24px 40px; border-radius: 4px; margin: 10% auto 0; text-align: center; background-color: #fff;
-        box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.16),0px 4px 5px 0px rgba(0,0,0,0.08),0px 1px 10px 0px rgba(0,0,0,0.04);
+      body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        background-color: #f8f9f9;
+        color: #2c3032;
       }
-      h1 { font-family: 'Montserrat', sans-serif; font-size: 24px; line-height: 32px; }
-      p { letter-spacing: 0.44px; }
-      table td { padding: 8px;  }
-      table td a { display: block; width: 170px; padding: 8px; border: 1px solid #e1e3e4; border-radius: 4px; text-align: center; color: rgba(44, 48, 50, 0.6); font-size: 14px; letter-spacing: 0.1px; font-weight: 600; text-decoration: none; }
-      table td img { display: block; height: 56px; margin: 0 auto; }
+      .wrapper {
+        width: 412px;
+        padding: 24px 24px 40px;
+        border-radius: 4px;
+        margin: 10% auto 0;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.16),
+          0px 4px 5px 0px rgba(0, 0, 0, 0.08), 0px 1px 10px 0px rgba(0, 0, 0, 0.04);
+      }
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        line-height: 32px;
+      }
+      p {
+        letter-spacing: 0.44px;
+      }
+      table td {
+        padding: 8px;
+      }
+      table td a {
+        display: block;
+        width: 170px;
+        padding: 8px;
+        border: 1px solid #e1e3e4;
+        border-radius: 4px;
+        text-align: center;
+        color: rgba(44, 48, 50, 0.6);
+        font-size: 14px;
+        letter-spacing: 0.1px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      table td img {
+        display: block;
+        height: 56px;
+        margin: 0 auto;
+      }
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <img src="/img/logo-primary.svg" alt="CARTO" >
+      <img src="/img/logo-primary.svg" alt="CARTO" />
       <h1>Sorry, your browser is not supported</h1>
       <p>Try again from the latest versions of any of these browsers:</p>
       <table>
         <tr>
           <td>
             <a href="https://www.google.com/chrome/" target="_blank">
-              <img src="/browsers/chrome.png" srcset="/browsers/chrome@2x.png 2x, /browsers/chrome@3x.png 3x">
+              <img
+                src="/browsers/chrome.png"
+                srcset="/browsers/chrome@2x.png 2x, /browsers/chrome@3x.png 3x"
+              />
               Google Chrome
             </a>
           </td>
           <td>
             <a href="https://www.microsoft.com/edge" target="_blank">
-              <img src="/browsers/edge.png" srcset="/browsers/edge@2x.png 2x, /browsers/edge@3x.png 3x">
+              <img
+                src="/browsers/edge.png"
+                srcset="/browsers/edge@2x.png 2x, /browsers/edge@3x.png 3x"
+              />
               Microsoft Edge
             </a>
           </td>
@@ -54,13 +119,19 @@
         <tr>
           <td>
             <a href="https://www.mozilla.org/firefox/new/" target="_blank">
-              <img src="/browsers/firefox.png" srcset="/browsers/firefox@2x.png 2x, /browsers/firefox@3x.png 3x">
+              <img
+                src="/browsers/firefox.png"
+                srcset="/browsers/firefox@2x.png 2x, /browsers/firefox@3x.png 3x"
+              />
               Mozilla Firefox
             </a>
           </td>
           <td>
             <a href="https://www.apple.com/safari/" target="_blank">
-              <img src="/browsers/safari.png" srcset="/browsers/safari@2x.png 2x, /browsers/safari@3x.png 3x">
+              <img
+                src="/browsers/safari.png"
+                srcset="/browsers/safari@2x.png 2x, /browsers/safari@3x.png 3x"
+              />
               Safari Browser
             </a>
           </td>

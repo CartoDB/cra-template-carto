@@ -31,54 +31,48 @@
     "deepmerge": "^4.2.2",
     "echarts": "^4.9.0",
     "echarts-for-react": "^2.0.16",
-    "history": "^5.0.0",
-    "react": "^17.0.1",
-    "react-app-polyfill": "^2.0.0",
-    "react-dom": "^17.0.1",
-    "react-map-gl": "^5.3.0",
-    "react-redux": "^7.2.2",
-    "react-router-dom": "^6.0.0-beta.0",
-    "react-scripts": "4.0.1"
-  },
-  "devDependencies": {
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "firebase-tools": "^9.2.2",
+    "history": "^5.0.0",
     "husky": "^4.3.8",
     "hygen": "^6.1.0",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-app-polyfill": "^2.0.0",
     "react-app-rewired": "^2.1.8",
+    "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
+    "react-map-gl": "^5.3.0",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^6.0.0-beta.0",
+    "react-scripts": "4.0.1",
     "start-server-and-test": "^1.12.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
     "cypress": "npx cypress open",
     "cy:run": "npx cypress run",
     "cy:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start https-get://localhost:3000 cy:run",
-    "eject": "react-scripts eject",
     "link-carto-react": "yarn link @carto/react-api @carto/react-auth @carto/react-basemaps @carto/react-core @carto/react-redux @carto/react-ui @carto/react-widgets @carto/react-workers",
     "unlink-carto-react": "yarn unlink @carto/react-api @carto/react-auth @carto/react-basemaps @carto/react-core @carto/react-redux @carto/react-ui @carto/react-widgets @carto/react-workers",
     "link-deck": "yarn link @deck.gl/core @deck.gl/layers @deck.gl/geo-layers @deck.gl/google-maps @deck.gl/carto @deck.gl/extensions @deck.gl/react",
     "unlink-deck": "yarn unlink @deck.gl/core @deck.gl/layers @deck.gl/geo-layers @deck.gl/google-maps @deck.gl/carto @deck.gl/extensions @deck.gl/react",
-    "lint": "eslint './src/**/*.{js,jsx}'",
-    "lint:fix": "eslint './src/**/*.{js,jsx}' --fix",
-    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\" --ignore-path .gitignore",
+    "lint": "eslint './src/**/*.{js,jsx}' --ignore-path ./.eslintignore",
+    "format": "prettier --write . --ignore-path ./.eslintignore",
     "hygen": "hygen",
     "updateSupportedBrowsers": "echo \"var browserRegex = $(npx browserslist-useragent-regexp --allowHigherVersions);\" > public/supportedBrowsers.js"
   },
-  "eslintConfig": {
-    "extends": ["react-app", "prettier", "prettier/react"],
-    "plugins": ["prettier"],
-    "rules": {
-      "prettier/prettier": "warn"
-    }
-  },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all", "not explorer 11"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "not explorer 11"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -91,7 +85,13 @@
     }
   },
   "lint-staged": {
-    "*.+(js|jsx)": ["yarn lint:fix", "git add"],
-    "*.+(js|jsx|json|css|md)": ["prettier --write", "git add"]
+    "*.+(js|jsx)": [
+      "yarn lint",
+      "git add"
+    ],
+    "*": [
+      "yarn format",
+      "git add"
+    ]
   }
 }
