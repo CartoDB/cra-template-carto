@@ -1,8 +1,8 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import { OAuthCallback } from '@carto/react-auth';
-import { useSelector } from 'react-redux';
-import Header from 'components/common/Header';
+import ProtectedRoute from 'components/common/ProtectedRoutes';
+import DefaultView from 'components/common/DefaultView';
 
 const Main = lazy(() => import('components/views/main/Main'));
 const NotFound = lazy(() => import('components/views/NotFound'));
@@ -46,20 +46,3 @@ const routes = [
 ];
 
 export default routes;
-
-function ProtectedRoute({ children }) {
-  const forceLogin = useSelector((state) => state.app.forceOAuthLogin);
-  const user = useSelector((state) => state.oauth.userInfo);
-  const isLoggedIn = !!user || !forceLogin;
-
-  return isLoggedIn ? children : <Navigate to={ROUTE_PATHS.LOGIN} />;
-}
-
-function DefaultView({ children }) {
-  return (
-    <>
-      <Header />
-      {children}
-    </>
-  );
-}

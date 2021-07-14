@@ -1,9 +1,7 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useAuth0 } from '@auth0/auth0-react';
-import Header from 'components/common/Header';
-import { initialState } from 'store/initialStateSlice';
+import ProtectedRoute from 'components/common/ProtectedRoutes';
+import DefaultView from 'components/common/DefaultView';
 
 const Main = lazy(() => import(/* webpackPrefetch: true */ 'components/views/main/Main'));
 const NotFound = lazy(() => import('components/views/NotFound'));
@@ -45,29 +43,3 @@ const routes = [
 ];
 
 export default routes;
-
-function ProtectedRoute({ children }) {
-  const { isAuthenticated, isLoading } = useAuth0();
-  const accessToken = useSelector((state) => state.carto.credentials.accessToken);
-
-  if (!initialState.oauth) {
-    return children;
-  }
-
-  const noAuthenticated = !isLoading && !isAuthenticated && !accessToken;
-
-  if (noAuthenticated) {
-    return <Navigate to={ROUTE_PATHS.LOGIN} />;
-  }
-
-  return !!accessToken && children;
-}
-
-function DefaultView({ children }) {
-  return (
-    <>
-      <Header />
-      {children}
-    </>
-  );
-}
